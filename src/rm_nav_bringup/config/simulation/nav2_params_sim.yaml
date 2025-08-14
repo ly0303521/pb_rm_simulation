@@ -151,9 +151,9 @@ controller_server:
       #*******************************************************************************
       # Robot/Carlike 此部分参数仅适用于类似汽车的机器人（如差速驱动机器人）
       #*******************************************************************************
-      # min_turning_radius: 0.0             #机器人的最小转弯半径。对于差速驱动机器人，此值为0
-      # wheelbase: 1.0                      #驱动轮轴与转向轮轴之间的距离。后轮驱动机器人此值可能为负数。
-      # cmd_angle_instead_rotvel: False     #是否用转向角代替控制指令消息中的旋转速度（需要结合轴距参数使用）
+      min_turning_radius: 0.0             #机器人的最小转弯半径。对于差速驱动机器人，此值为0
+      wheelbase: 1.0                      #驱动轮轴与转向轮轴之间的距离。后轮驱动机器人此值可能为负数。
+      cmd_angle_instead_rotvel: False     #是否用转向角代替控制指令消息中的旋转速度（需要结合轴距参数使用）
 
       #*******************************************************************************
       # Robot/Omni 此部分参数仅适用于全方位移动机器人
@@ -259,7 +259,7 @@ local_costmap:
       update_frequency: 20.0
       publish_frequency: 10.0
       global_frame: map
-      robot_base_frame: base_link_fake
+      robot_base_frame: base_link
       use_sim_time: False
       rolling_window: true
       width: 5
@@ -293,7 +293,7 @@ global_costmap:
       update_frequency: 5.0
       publish_frequency: 2.0
       global_frame: map
-      robot_base_frame: base_link_fake
+      robot_base_frame: base_link
       use_sim_time: False
       robot_radius: 0.2
       resolution: 0.04
@@ -383,7 +383,7 @@ recoveries_server:
     backup:
       plugin: "nav2_recoveries/BackUp"
     global_frame: odom
-    robot_base_frame: base_link_fake
+    robot_base_frame: base_link
     transform_timeout: 0.1
     use_sim_time: False
     simulate_ahead_time: 1.0
