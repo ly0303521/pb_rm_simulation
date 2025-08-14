@@ -277,16 +277,6 @@ def generate_launch_description():
         ]
     )
 
-    bringup_fake_vel_transform_node = Node(
-        package='fake_vel_transform',
-        executable='fake_vel_transform_node',
-        output='screen',
-        parameters=[{
-            'use_sim_time': use_sim_time,
-            'spin_speed': 5.0 # rad/s
-        }]
-    )
-
     start_mapping = Node(
         condition = LaunchConfigurationEquals('mode', 'mapping'),
         package='slam_toolbox',
@@ -324,7 +314,6 @@ def generate_launch_description():
     ld.add_action(bringup_pointcloud_to_laserscan_node)
     ld.add_action(bringup_LIO_group)
     ld.add_action(start_localization_group)
-    ld.add_action(bringup_fake_vel_transform_node)
     ld.add_action(start_mapping)
     ld.add_action(start_navigation2)
 
