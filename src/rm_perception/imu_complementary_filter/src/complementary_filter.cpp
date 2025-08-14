@@ -458,18 +458,31 @@ void normalizeVector(double& x, double& y, double& z)
 {
     double norm = sqrt(x * x + y * y + z * z);
 
-    x /= norm;
-    y /= norm;
-    z /= norm;
+    if (norm > 0.0)
+    {
+        x /= norm;
+        y /= norm;
+        z /= norm;
+    }
 }
 
 void normalizeQuaternion(double& q0, double& q1, double& q2, double& q3)
 {
     double norm = sqrt(q0 * q0 + q1 * q1 + q2 * q2 + q3 * q3);
-    q0 /= norm;
-    q1 /= norm;
-    q2 /= norm;
-    q3 /= norm;
+
+    if (norm > 0.0)
+    {
+        q0 /= norm;
+        q1 /= norm;
+        q2 /= norm;
+        q3 /= norm;
+    }
+    else
+    {
+        // Reset to identity quaternion to avoid propagating NaNs.
+        q0 = 1.0;
+        q1 = q2 = q3 = 0.0;
+    }
 }
 
 void invertQuaternion(double q0, double q1, double q2, double q3,
