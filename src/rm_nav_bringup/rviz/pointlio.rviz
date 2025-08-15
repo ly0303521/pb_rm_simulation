@@ -34,7 +34,7 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base_link:
+        base_footprint:
           Value: true
         base_link_fake:
           Value: true
@@ -63,21 +63,22 @@ Visualization Manager:
         map:
           {}
         odom:
-          base_link:
-            base_link_fake:
-              {}
-            imu_link:
-              {}
-            livox_frame:
-              {}
-            wheel_1:
-              {}
-            wheel_2:
-              {}
-            wheel_3:
-              {}
-            wheel_4:
-              {}
+          base_footprint:
+            base_link:
+              base_link_fake:
+                {}
+              imu_link:
+                {}
+              livox_frame:
+                {}
+              wheel_1:
+                {}
+              wheel_2:
+                {}
+              wheel_3:
+                {}
+              wheel_4:
+                {}
       Update Interval: 0
       Value: true
     - Angle Tolerance: 0.10000000149011612

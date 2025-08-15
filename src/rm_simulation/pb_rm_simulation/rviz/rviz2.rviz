@@ -122,8 +122,6 @@ Visualization Manager:
         All Enabled: true
         base_footprint:
           Value: true
-        base_link:
-          Value: true
         camera_link:
           Value: true
         imu_link:
@@ -240,7 +238,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: base_footprint
     Frame Rate: 30
   Name: root
   Tools:

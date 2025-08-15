@@ -36,6 +36,13 @@
     <xacro:default_inertial mass="8.2"/>
   </link>
 
+  <link name="base_footprint"/>
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
   <link name="wheel_1">
     <visual>
       <geometry>
