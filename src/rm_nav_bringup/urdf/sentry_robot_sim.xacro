@@ -120,12 +120,13 @@
   <joint name="base_to_wheel1" type="continuous">
     <parent link="base_link"/>
     <child link="wheel_1"/>
-    <origin rpy="${-PI/2} 0 0" xyz="0.1 0.13 0"/>
-    <axis xyz="0 0 1" />
+    <limit effort="100" velocity="100" />
+    <origin xyz="0.1 0.13 0"/>
+    <axis xyz="0 1 0" />
   </joint>
 
   <joint name="base_to_wheel2" type="continuous">
-    <axis xyz="0 0 1" />
+    <axis xyz="0 1 0" />
     <anchor xyz="0 0 0" />
     <limit effort="100" velocity="100" />
     <parent link="base_link"/>
@@ -135,14 +136,15 @@
 
   <joint name="base_to_wheel3" type="continuous">
     <parent link="base_link"/>
-    <axis xyz="0 0 1" />
+    <axis xyz="0 1 0" />
     <child link="wheel_3"/>
-    <origin rpy="${-PI/2} 0 0" xyz="0.1 -0.13 0"/>
+    <limit effort="100" velocity="100" />
+    <origin xyz="0.1 -0.13 0"/>
   </joint>
 
   <joint name="base_to_wheel4" type="continuous">
     <parent link="base_link"/>
-    <axis xyz="0 0 1" />
+    <axis xyz="0 1 0" />
     <child link="wheel_4"/>
     <origin rpy="${-PI/2} 0 0" xyz="-0.1 -0.13 0"/>
   </joint>
@@ -208,11 +210,11 @@
     <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <ros>
         <namespace>/</namespace>
+        <remapping>cmd_vel:=cmd_vel</remapping>
+        <remapping>odom:=odom</remapping>
       </ros>
       <left_joint>base_to_wheel1</left_joint>
-      <left_joint>base_to_wheel2</left_joint>
       <right_joint>base_to_wheel3</right_joint>
-      <right_joint>base_to_wheel4</right_joint>
       <wheel_separation>0.26</wheel_separation>
       <wheel_radius>0.06</wheel_radius>
       <command_topic>/cmd_vel</command_topic>
